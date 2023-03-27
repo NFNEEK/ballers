@@ -1,10 +1,10 @@
 import Head from "next/head";
 
-const DOMAIN = "https://precedent.dev";
+const DOMAIN = "loaded-self.vercel.app";
 
 export default function Meta({
-  title = "Precedent - Building blocks for your Next.js project",
-  description = "Precedent is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
+  title = "H00PS 🏀",
+  description = "Sign up to Ball in the Final Four with H00PS",
   image = `${DOMAIN}/api/og`,
 }: {
   title?: string;
