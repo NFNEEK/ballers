@@ -3,31 +3,35 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import { ReactNode } from "react";
 import useScroll from "@/lib/hooks/use-scroll";
 import Meta from "./meta";
-import { useSignInModal } from "./sign-in-modal";
 import UserDropdown from "./user-dropdown";
+import { connectWallet } from "../../utils/wallet";
+import ConnectWalletButton from '../sol/ConnectWalletButton';
+import React,{ ReactNode, useState } from 'react';
 
-export default function Layout({
-  meta,
-  children,
-}: {
-  meta?: {
-    title?: string;
-    description?: string;
-    image?: string;
-  };
+interface LayoutProps {
   children: ReactNode;
-}) {
-  const { data: session, status } = useSession();
-  const { SignInModal, setShowSignInModal } = useSignInModal();
-  const scrolled = useScroll(50);
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
+const { data: session, status } = useSession();
+const scrolled = useScroll(50);// ...
+const [walletConnected, setWalletConnected] = useState(false);
+
+  const handleWalletConnection = async () => {
+    try {
+      await connectWallet();
+      setWalletConnected(true);
+    } catch (error) {
+      console.error("Error connecting wallet:", error);
+    }
+  };
+
 
   return (
     <>
-      <Meta {...meta} />
-      <SignInModal />
+      <Meta />
       <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-50 via-white to-cyan-100" />
       <div
         className={`fixed top-0 w-full ${
@@ -37,26 +41,28 @@ export default function Layout({
         } z-30 transition-all`}
       >
         <div className="mx-5 flex h-16 max-w-screen-xl items-center justify-between xl:mx-auto">
-          <Link href="/" className="flex items-center font-display text-2xl">
-            <Image
-              src="/logo.png"
-              alt="H00PS LOGO"
-              width="30"
-              height="30"
-              className="mr-2 rounded-sm"
-            ></Image>
-            <p>H00PS</p>
+          <Link href="/">
+            <a className="flex items-center font-display text-2xl">
+              <Image
+                src="/logo.png"
+                alt="H00PS LOGO"
+                width="30"
+                height="30"
+                className="mr-2 rounded-sm"
+              ></Image>
+              <p>H00PS</p>
+            </a>
           </Link>
           <div>
             <AnimatePresence>
               {!session && status !== "loading" ? (
-                <motion.button
+                <ConnectWalletButton
                   className="rounded-full border border-black bg-black p-1.5 px-4 text-sm text-white transition-all hover:bg-white hover:text-black"
-                  onClick={() => setShowSignInModal(true)}
+                  onClick={handleWalletConnection}
                   {...FADE_IN_ANIMATION_SETTINGS}
                 >
                   CONNECT WALLET
-                </motion.button>
+                </ConnectWalletButton>
               ) : (
                 <UserDropdown />
               )}
@@ -82,4 +88,6 @@ export default function Layout({
       </div>
     </>
   );
-}
+};
+
+export default Layout;

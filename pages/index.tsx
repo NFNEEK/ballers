@@ -1,3 +1,4 @@
+import React, { useState, ReactNode } from "react";
 import Card from "@/components/home/card";
 import Layout from "@/components/layout";
 import Balancer from "react-wrap-balancer";
@@ -7,6 +8,9 @@ import { Github, Twitter } from "@/components/shared/icons";
 import WebVitals from "@/components/home/web-vitals";
 import ComponentGrid from "@/components/home/component-grid";
 import Image from "next/image";
+
+
+
 
 export default function Home() {
   return (
@@ -62,20 +66,11 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <svg
-              className="h-4 w-4 group-hover:text-black"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 4L20 20H4L12 4Z"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <img
+            className="h-4 w-4 group-hover:text-black"
+            src="/slogo.png"
+            alt="slogo1"
+            />
             <p>MINT</p>
           </a>
           <a
@@ -111,49 +106,40 @@ export default function Home() {
   );
 }
 
+
 const features = [
   {
     title: "SHOW YOUR MIGHT",
-    description:
-      "PICK YOUR CHAMP 🏆",
+    description: "PICK YOUR CHAMP 🏆",
     large: true,
+    demo: <ComponentGrid />,
   },
   {
     title: "THE POT!",
-    description:
-      "OPEN MINT - WINNING SIDE GETS EVEN SPLITS!",
+    description: "OPEN MINT - WINNING SIDE GETS EVEN SPLITS!",
     demo: <WebVitals />,
   },
   {
     title: "GRAB YOUR KICKS",
-    description:
-      "Grab your KICKS, it is time for the FINAL FOUR! 🏀",
+    description: "Grab your KICKS, it is time for the FINAL FOUR! 🏀",
     demo: (
-      <a href={MINT_B}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="https://vercel.com/button"
-          alt="LACE-UP"
-          width={120}
-        />
-      </a>
+      <div className="flex items-center justify-center space-x-5">
+        <img src="/logo.png" alt="LACE-UP" width={250} />
+      </div>
     ),
   },
   {
     title: "Solana Swagger",
-    description:
-      "BUILT ON THE SOLANA BLOCKCHAIN",
+    description: "BUILT ON THE SOLANA BLOCKCHAIN",
     demo: (
-      <div className="flex items-center justify-center space-x-20">
-        <Image alt="Auth.js logo" src="/authjs.webp" width={50} height={50} />
-        <Image alt="Prisma logo" src="/prisma.svg" width={50} height={50} />
+      <div className="flex items-center justify-center space-x-5">
+        <img src="/logo.png" alt="LACE-UP" width={250} />
       </div>
     ),
   },
   {
     title: "THE STATS",
-    description:
-      "OFFICIAL VEGAS ODDS",
+    description: "OFFICIAL VEGAS ODDS",
     demo: (
       <div className="grid grid-flow-col grid-rows-3 gap-10 p-10">
         <span className="font-mono font-semibold">POINT SPREAD</span>
