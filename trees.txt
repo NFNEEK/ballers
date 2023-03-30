@@ -1,0 +1,90 @@
+.
+├── LICENSE.md
+├── README.md
+├── components
+│   ├── home
+│   │   ├── card.tsx
+│   │   ├── component-grid.tsx
+│   │   ├── demo-modal.tsx
+│   │   └── web-vitals.tsx
+│   ├── layout
+│   │   ├── index.tsx
+│   │   ├── meta.tsx
+│   │   ├── sign-in-modal.tsx
+│   │   └── user-dropdown.tsx
+│   ├── shared
+│   │   ├── counting-numbers.tsx
+│   │   ├── icons
+│   │   │   ├── expanding-arrow.tsx
+│   │   │   ├── github.tsx
+│   │   │   ├── google.tsx
+│   │   │   ├── index.tsx
+│   │   │   ├── loading-circle.tsx
+│   │   │   ├── loading-dots.module.css
+│   │   │   ├── loading-dots.tsx
+│   │   │   ├── loading-spinner.module.css
+│   │   │   ├── loading-spinner.tsx
+│   │   │   └── twitter.tsx
+│   │   ├── leaflet.tsx
+│   │   ├── modal.tsx
+│   │   ├── popover.tsx
+│   │   └── tooltip.tsx
+│   └── sol
+│       ├── ChoiceComponent.tsx
+│       └── ConnectWalletButton.tsx
+├── lib
+│   ├── constants.ts
+│   ├── hooks
+│   │   ├── use-intersection-observer.ts
+│   │   ├── use-local-storage.ts
+│   │   ├── use-scroll.ts
+│   │   └── use-window-size.ts
+│   ├── prisma.ts
+│   └── utils.ts
+├── next-env.d.ts
+├── next.config.js
+├── package-lock.json
+├── package.json
+├── pages
+│   ├── _app.tsx
+│   ├── _document.tsx
+│   ├── api
+│   │   ├── auth
+│   │   │   └── [...nextauth].ts
+│   │   └── og.tsx
+│   ├── index.tsx
+│   └── sitemap.xml.tsx
+├── postcss.config.js
+├── prettier.config.js
+├── prisma
+│   └── schema.prisma
+├── public
+│   ├── authjs.webp
+│   ├── favicon.ico
+│   ├── logo.png
+│   ├── next.svg
+│   ├── prisma.svg
+│   ├── slogo.png
+│   ├── slogo1.svg
+│   ├── slogo2.svg
+│   ├── thirteen.svg
+│   ├── vercel-logotype.svg
+│   └── vercel.svg
+├── robots.txt
+├── styles
+│   ├── SF-Pro-Display-Medium.otf
+│   └── globals.css
+├── tailwind.config.js
+├── tree4.txt
+├── trees.txt
+├── tsconfig.json
+├── utils
+│   ├── prisma.tsx
+│   ├── sendTransaction.tsx
+│   ├── smartContractInstructions.tsx
+│   ├── solana.tsx
+│   ├── storeUserChoice.tsx
+│   └── wallet.tsx
+└── yarn.lock
+
+16 directories, 72 files

@@ -1,12 +1,15 @@
-import "@/styles/globals.css";
-import type { AppProps } from "next/app";
-import { Analytics } from "@vercel/analytics/react";
+import '@/styles/globals.css';
+import type { AppProps } from 'next/app';
+import { Analytics } from '@vercel/analytics/react';
 import type { Session } from "next-auth";
-import { SessionProvider } from "next-auth/react";
-import { Provider as RWBProvider } from "react-wrap-balancer";
-import cx from "classnames";
-import localFont from "@next/font/local";
-import { Inter } from "@next/font/google";
+import { SessionProvider } from 'next-auth/react';
+import { Provider as RWBProvider } from 'react-wrap-balancer';
+import cx from 'classnames';
+import localFont from '@next/font/local';
+import { Inter } from '@next/font/google';
+import Wallet from '../components/sol/WalletProvider';
+import '../styles/globals.css';
+import CombinedWallet from '@/sol/CombinedWallet'
 
 const sfPro = localFont({
   src: "../styles/SF-Pro-Display-Medium.otf",
@@ -26,7 +29,10 @@ export default function MyApp({
     <SessionProvider session={session}>
       <RWBProvider>
         <div className={cx(sfPro.variable, inter.variable)}>
-          <Component {...pageProps} />
+           {/* Add Wallet component here */}
+            <Component {...pageProps} />
+
+        {/* Close Wallet component here */}
         </div>
       </RWBProvider>
       <Analytics />
